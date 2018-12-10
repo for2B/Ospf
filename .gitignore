@@ -2,8 +2,6 @@
 .vscode
 pkg
 .idea
-my.db
-my.db.lock
 compiled
 node_modules
 .awcache
