@@ -11,11 +11,12 @@ exitOnErr(){
 trap 'exitOnErr $LINENO' ERR
 
 export PATH=/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin:/usr/local/sbin:~/bin
-export SRC_HOME=/var/lib/jenkins/workspace/OutsourcingPlatform/AG-OutsourcingPlatform
-export SERVER_PATH=$SRC_HOME/server
-export FRONT_PATA=$SRC_HOME/frontend
+export PROJECT_HOME=/var/lib/jenkins/workspace/OspfDev/AG-OutsourcingPlatform
+export SERVER_PATH=$PROJECT_HOME/server
+export FRONT_PATA=$PROJECT_HOME/frontend
 export GOPATH=$GOPATH:$SERVER_PATH
 export SRC_PATH=$SERVER_PATH/src
+export GOTEST=$SERVER_PATH/src/OutsourcingPlatform/ospf/TreadPit
 export BIN_PATH=$SERVER_PATH/bin
  
 
@@ -32,7 +33,7 @@ if [  "$BUILD_DEP" = "TRUE"  ];then
    
    if [  "BUILD_TYPE"="DEV"  ];then
       	echo "frontend build DEV"
-        ng build --no-progress    
+        ng build --aot --output-hashing=all --sourceMap=false --extractCss=true --namedChunks=false --buildOptimizer=true  
    fi
      
    if [ "BUILD_TYPE" = "PROD" ];then
@@ -56,7 +57,7 @@ fi
 cd $SRC_PATH/OutsourcingPlatform/app
 
 echo "go build...."
-go build -o ospf  -ldflags "-X main.BUILDTYPE=DEPLOY"
+go build -o ospfdev  -ldflags "-X main.BUILDTYPE=DEPLOY"
 if [  $? -eq 0 ];then
       echo "go build succeess!"
 fi
@@ -83,5 +84,19 @@ nohup $BIN_PATH/ospf &
 if [ $? -ne 0 ]; then
      exit 1
 else
-    echo "ospf run succeess !!!"
+    echo "ospfdev run succeess !!!"
 fi
+
+if [ "BUILD_TEST" = "TRUE" ];then
+echo "run go test"
+cd $GOTEST
+go test
+  if [ $? -eq 0];then
+    echo "test succeess!"
+  fi
+fi
+
+
+
+
+
