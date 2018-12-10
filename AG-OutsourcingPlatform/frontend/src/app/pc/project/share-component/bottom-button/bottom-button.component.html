@@ -1,0 +1,76 @@
+
+<div *ngIf="showPlace=='item'" [ngSwitch]="ButtonGroupType" >
+
+  <div *ngSwitchCase="'contract-deatil'"  id="button-group" nz-row >
+    <button class="item-pro-button" id="item-button-default" nz-col nz-span="8" (click)="contractProject(ConfirmContract)" >我要承接</button>
+    <button class="item-pro-button" id="item-button-default" nz-col nz-span="8" nzOffset="2" (click)="seeDetail()">查看详情</button>
+  </div>
+
+  <div *ngSwitchCase="'amend-end'"        id="item-button-group" nz-row >
+    <button class="item-pro-button" id="item-button-default" nz-col nz-span="8" (click)="amendProjec()" >修改</button>
+    <button class="item-pro-button" id="item-button-danger" nz-col nz-span="8" nzOffset="2" (click)="endProject()" >结束</button>
+  </div>
+
+  <div *ngSwitchCase="'sign-end'"         id="item-button-group" nz-row >
+    <button class="item-pro-button" id="item-button-default" nz-col nz-span="8" (click)="signPaction(UpdateSign)" >签订合同</button>
+    <button class="item-pro-button" id="item-button-danger" nz-col nz-span="8" nzOffset="2" (click)="endProject()" >结束</button>
+  </div>
+
+  <div *ngSwitchCase="'end'"              id="item-button-group" nz-row >
+    <button class="item-pro-button" id="item-button-danger" nz-col nz-span="8" (click)="endProject()" >结束</button>
+  </div>
+
+  <div *ngSwitchCase="'abandon'"          id="item-button-group" nz-row >
+    <button class="item-pro-button" id="item-button-danger" nz-col nz-span="8" (click)="abandonBidding()" >放弃竞标</button>
+  </div>
+
+  <div *ngSwitchCase="'download-end'"     id="item-button-group" nz-row >
+    <button class="item-pro-button" id="item-button-default" nz-col nz-span="8" (click)="downloadPaction()" >下载合同</button>
+    <button class="item-pro-button" id="item-button-danger" nz-col nz-span="8" nzOffset="2"(click)="abandonProject()"  >放弃项目</button>
+  </div>  
+  
+</div>
+
+<div *ngIf="showPlace=='detail'" [ngSwitch]="ButtonGroupType">
+  <div *ngSwitchCase="'contract-deatil'"  id="button-group" nz-row >
+    <button class="detail-pro-button" id="detail-button-default" nz-col nz-span="8" (click)="contractProject(ConfirmContract)" >我要承接</button>
+  </div>
+
+  <div *ngSwitchCase="'amend-end'"        id="button-group" nz-row >
+    <button class="detail-pro-button" id="detail-button-default" nz-col nz-span="8" (click)="amendProjec()" >修改项目</button>
+    <button class="detail-pro-button" id="detail-button-danger" nz-col nz-span="8"   (click)="endProject()" >结束项目</button>
+  </div>
+
+  <div *ngSwitchCase="'sign-end'"         id="button-group" nz-row >
+    <button class="detail-pro-button" id="detail-button-default" nz-col nz-span="8" (click)="signPaction(UpdateSign)" >签订合同</button>
+    <button class="detail-pro-button" id="detail-button-danger" nz-col nz-span="8"   (click)="endProject()" >结束项目</button>
+  </div>
+
+  <div *ngSwitchCase="'end'"              id="button-group" nz-row >
+    <button class="detail-pro-button" id="detail-button-danger" nz-col nz-span="8" (click)="endProject()" >结束项目</button>
+  </div>
+
+  <div *ngSwitchCase="'abandon'"          id="button-group" nz-row >
+    <button class="detail-pro-button" id="detail-button-danger" nz-col nz-span="8" (click)="abandonBidding()" >放弃竞标</button>
+  </div>
+
+  <div *ngSwitchCase="'download-end'"     id="button-group" nz-row >
+    <button class="detail-pro-button" id="detail-button-default" nz-col nz-span="8" (click)="downloadPaction()" >下载合同</button>
+    <button class="detail-pro-button" id="detail-button-danger" nz-col nz-span="8"   (click)="abandonProject()"  >放弃项目</button>
+  </div> 
+</div>
+
+<ng-template #ConfirmContract >
+  <p>
+   确定竞标承接
+   【<span style="color: #2DB7F5">{{project.project_name}}</span> 】
+   吗？
+  </p>
+</ng-template>
+
+<ng-template #UpdateSign >
+  <p>
+    确定更新项目状态为
+    【<span style="color:#2BD863">签订合同</span>】?
+  </p>
+</ng-template>

@@ -1,0 +1,27 @@
+<div class="wrap">
+  <div class="osp_tab">
+    <ng-container *ngFor="let t of this.tabgroup?.tabs">
+      <div [ngClass]="t.currentClass" (click)="t.click(this.tabgroup)"> {{t.name}}</div>
+    </ng-container>
+  </div>
+  <ng-container [ngSwitch]="tabgroup?.selected.name">
+    <div *ngSwitchCase="'基础信息'" class="content1">
+      <ng-content select={{this.tabgroup?.tabs[0].selector}}></ng-content>
+    </div>
+    <div *ngSwitchCase="'证明资料'" class="content1">
+      <ng-content select=".tab3"></ng-content>
+    </div>
+  </ng-container>
+</div>
+
+
+
+
+<!--
+  <ng-container *ngFor="let t of this.tabgroup?.tabs">
+    <div *ngSwitchCase="t.name" class="content1">
+      {{tabgroup?.selected.name}}
+      <ng-content selector="t.selector"></ng-content>
+    </div>
+  </ng-container>
+  -->

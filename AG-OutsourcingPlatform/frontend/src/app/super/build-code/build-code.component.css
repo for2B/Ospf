@@ -1,0 +1,13 @@
+.ccx_centerBack{
+  min-height:100%;
+  width:100%;
+  /*background-color:black;*/
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.item{
+  margin:20px
+}

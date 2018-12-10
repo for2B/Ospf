@@ -1,0 +1,9 @@
+<div class="wrap">
+  <div class="osp_tab">
+    <ng-container *ngFor="let t of this.tabgroup?.tabs">
+      <div [ngClass]="t.currentClass" (click)="t.click(this.tabgroup)"> {{t.name}}</div>
+    </ng-container>
+  </div>
+    <ng-content></ng-content>
+</div>
+

@@ -1,0 +1,25 @@
+<div nz-row nzType="flex" nzJustify="start" nzAlign="middle" id="head-select" >
+  <div class="item" nz-col nzSpan="4"  nz-row id="select-cycle"  >
+    <label  class="label" nz-col nzSpan="6" >周期 :</label>
+    <div  nz-col nzSpan="18" >
+      <nz-select style="width: 100%;"  (ngModelChange)="CycleChange($event)" [(ngModel)]="CycleSelectedValue" nzPlaceHolder="全部">
+          <nz-option *ngFor="let option of CycleOptions" [nzValue]="option" [nzLabel]="option.label"></nz-option>
+      </nz-select>
+    </div>
+  </div>
+  <div class="item" id="select-money" nz-col nzSpan="5" nz-row  >
+    <label  class="label" nz-col nzSpan="5" >预算 :</label>
+    <div nz-col nzSpan="19" >
+      <nz-select style="width: 100%;"  (ngModelChange)="MoneyChange($event)" [(ngModel)]="MoneySelectedValue" nzPlaceHolder="全部">
+          <nz-option *ngFor="let option of MoneyOptions" [nzValue]="option" [nzLabel]="option.label"></nz-option>
+      </nz-select>
+    </div>
+  </div>
+  <div class="item" nz-col nzSpan="8"  id="select-data" nz-row >
+    <label  class="label" nz-col nzSpan="5" >发布日期 :</label>
+    <div nz-col nzSpan="18">
+      <nz-range-picker nzFormat="yyyy-MM-dd"  [nzPlaceHolder]="[ '开始', '结束' ]" (ngModelChange)="onChange($event)"></nz-range-picker>
+      <!-- <nz-range-picker nzFormat="yyyy-MM-dd"  [nzPlaceHolder]="[ '开始', '结束' ]" [(ngModel)]="dsv" (ngModelChange)="onChange($event)"></nz-range-picker> -->
+    </div>
+  </div>
+</div>

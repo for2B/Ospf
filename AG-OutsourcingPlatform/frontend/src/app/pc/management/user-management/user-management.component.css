@@ -1,0 +1,42 @@
+.bar{
+  background-color: white;
+  line-height: 60px;
+  margin-top: 20px;
+  vertical-align: middle;
+  border: 1px #dedede solid;
+}
+
+#search {
+  width: 10rem;
+}
+
+.barbtn{
+  margin-left: 1rem;
+}
+
+.barlabel{
+  margin-left: 0.5rem
+}
+
+.main{
+  background-color: white;
+  line-height: 60px;
+  margin-top: 15px;
+  border: 1px #dedede solid;
+}
+
+.mainbtn{
+  margin-left: 0.4rem;
+}
+.inactive{
+  background-color: red;
+  color: white;
+  border-radius: 5px;
+}
+.active{
+  background-color: green;
+  color: white;
+  border-radius: 5px;
+
+}
+

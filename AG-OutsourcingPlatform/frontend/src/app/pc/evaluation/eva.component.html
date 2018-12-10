@@ -1,0 +1,14 @@
+<app-osp-tab [tabgroup]="tabgroup" [tabs]="tabs">
+    <ng-container [ngSwitch]="tabgroup?.selected.name">
+      <div *ngSwitchCase="tabgroup?.tabs[0].name" class="content1">
+        <!-- <h1>{{tabgroup?.tabs[0].name}}</h1> -->
+        <app-eva-invitied></app-eva-invitied>
+      </div>
+      <div *ngSwitchCase="tabgroup?.tabs[1].name" class="content1">
+        <!-- <h1>{{tabgroup?.tabs[1].name}}</h1> -->
+        <app-eva-forme></app-eva-forme>
+      </div>
+  
+    </ng-container>
+</app-osp-tab>
+  

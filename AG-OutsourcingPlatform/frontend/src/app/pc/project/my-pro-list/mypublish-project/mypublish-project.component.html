@@ -1,0 +1,24 @@
+<div id="my-publish-content">
+
+  <div  id="select-status" >
+
+    <app-statustab [tabGroup]=tabGroup (selectTab)='changestatus($event)' [numberOfEachStatus] = numberOfEachStatus ></app-statustab>
+
+    <div id="pro-list" >
+      <app-projectitem  class="proitem"  *ngFor="let project of project_list" [project]=project  [Identity]=2 > </app-projectitem>
+    </div>
+    <div  nz-row nzType="flex" nzJustify="center" *ngIf="list_null" id="list-null" >
+        项目列表为空
+    </div>
+    <div nz-row  nzType="flex" nzJustify="center" >
+        <nz-pagination   
+        [nzPageIndex]="CurrentPage" 
+        [nzTotal]="TotalNums" 
+        nzShowSizeChanger [nzPageSize]="10"
+        (nzPageIndexChange)="ChangePage($event)"
+        (nzPageSizeChange)="ChangeSize($event)"
+        ></nz-pagination>
+    </div>
+
+  </div>
+</div>

@@ -1,0 +1,32 @@
+.item{
+    height: 2rem;
+    font-size: 1rem;
+    text-align: center;
+    color: #333333;
+    font-weight: bolder;
+    margin-top: 0.5rem;
+  }
+  
+/*选择框首部整体左移*/
+#head-select{
+    margin-left: 2rem;
+    white-space: nowrap ;
+}
+/*使label居中对准*/
+.label{
+    margin-top: 1.2px;
+}
+
+nz-date-picker, nz-month-picker, nz-range-picker, nz-week-picker {
+    margin: 0 5px 12px 0;
+}
+
+@media all and (max-width:1200px){
+    .item{
+        font-size: 0.7rem;
+        height: 1.5rem;
+    }
+    .label{
+        margin-top: 7px;
+    }
+}

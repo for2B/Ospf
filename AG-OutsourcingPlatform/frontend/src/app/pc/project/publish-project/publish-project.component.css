@@ -1,0 +1,15 @@
+#pro-form{
+    margin-left: 4rem;
+}
+#pubpro-button{
+    padding-top: 0.6rem;
+    padding-bottom: 1.8rem;
+    padding-left: 7rem;
+    padding-right: 7rem;
+}
+::ng-deep .ant-form label {
+    font-size: 1.2rem;
+}
+::ng-deep .ant-row {
+    margin-bottom: 2rem;
+}

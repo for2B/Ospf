@@ -1,0 +1,22 @@
+
+<app-top-layer>
+<div class="login_body">
+  <div class="login_body_shade">
+    
+    <div class="login_main_body">
+      <div class="login_body_title">人才评价外包系统</div>
+      <div class="login-group-input">
+        <input class="login_input_username" placeholder="请输入手机号" [(ngModel)]="phone">
+        <input class="login_input_pw" placeholder="请输入密码，区分大小写，不能用空格" [(ngModel)]="password">
+      </div>
+       <div class="login_button" (click)="login(phone,password)">登录</div>
+       <div class="login_group_other">
+         <a class="login_other_forget">忘记密码</a>
+         <a><i class="login_wechat_icon fa fa-wechat"></i></a>
+       </div>
+     </div>
+  </div>
+ </div>
+</app-top-layer>
+
+

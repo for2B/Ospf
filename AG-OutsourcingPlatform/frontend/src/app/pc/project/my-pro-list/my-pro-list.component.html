@@ -1,0 +1,16 @@
+<app-osp-tab [tabgroup]="tabgroup" [tabs]="tabs">
+  <ng-container [ngSwitch]="tabgroup?.selected.name">
+    <div *ngSwitchCase="tabgroup?.tabs[0].name" class="content1">
+      <!-- <h1>{{tabgroup?.tabs[0].name}}</h1> -->
+      <app-mypublish-project></app-mypublish-project>
+    </div>
+    <div *ngSwitchCase="tabgroup?.tabs[1].name" class="content1">
+      <!-- <h1>{{tabgroup?.tabs[1].name}}</h1> -->
+      <app-mycontract-project></app-mycontract-project>
+    </div>
+    <div *ngSwitchCase="tabgroup?.tabs[2].name" class="content1" >
+      <app-myparticipation ></app-myparticipation>
+    </div>
+
+  </ng-container>
+</app-osp-tab>

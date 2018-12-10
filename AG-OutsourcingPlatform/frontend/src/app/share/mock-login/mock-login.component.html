@@ -1,0 +1,22 @@
+
+<div class="ccx_centerBack">
+  <div><h1>选择你要模拟的用户角色</h1></div>
+  <br>
+  <br>
+
+  <br>
+
+  <div>
+    <nz-radio-group [(ngModel)]="radioValue" [nzButtonStyle]="'solid'" [nzSize]="'large'">
+      <label nz-radio-button nzValue="0">普通管理员</label>
+      <label nz-radio-button nzValue="1">证明人</label>
+      <label nz-radio-button nzValue="2">管理员</label>
+      <label nz-radio-button nzValue="3">上帝</label>
+    </nz-radio-group>
+  </div>
+ <div style="height:55px;"></div>
+
+  <button nz-button nzType="primary" (click)="toMockLogin()" [nzLoading]="isLoading"><i class="anticon anticon-poweroff"></i>确定登陆</button>
+
+
+</div>

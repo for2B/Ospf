@@ -1,0 +1,61 @@
+<div class="ccx_centerBack">
+  <div style="padding:20px;">
+    <div class="item">
+      <h2>使用此功能需要本地开发环境下启动前后端应用</h2><br>
+      <div>选择接口所属开发者</div>
+      <nz-radio-group [(ngModel)]="developer" [nzButtonStyle]="'solid'" [nzSize]="'large'">
+        <label nz-radio-button nzValue="chencanxin">chencanxin</label>
+        <label nz-radio-button nzValue="chenhuiliang">chenhuiliang</label>
+        <label nz-radio-button nzValue="guochuting">guochuting</label>
+        <label nz-radio-button nzValue="guozhenzhen">guozhenzhen</label>
+        <label nz-radio-button nzValue="panjiawei">panjiawei</label>
+      </nz-radio-group>
+
+
+    </div>
+    <div class="item">
+
+
+      <input (blur)="autoInput()" [(ngModel)]="name"   nz-input placeholder=" 输入新创建的接口名称,注意不要包含'Controller','Model'等后缀" nzSize="large">
+
+
+    </div>
+    <div class="item">
+
+      <input [(ngModel)]="url" nz-input placeholder="输入地址,示例:'api/login'只需输入'login'
+      " nzSize="large">
+
+    </div>
+
+    <div class="item">
+      <div>选择接口使用权限</div>
+
+
+      <div>
+        <nz-radio-group [(ngModel)]="apiLevel" [nzButtonStyle]="'solid'" [nzSize]="'large'">
+          <label nz-radio-button nzValue="USER_SUPER">上帝</label>
+          <label nz-radio-button nzValue="USER_VISITOR">游客</label>
+          <label nz-radio-button nzValue="USER_REFEREE">证明人</label>
+          <label nz-radio-button nzValue="USER_NORMAL">普通用户</label>
+        </nz-radio-group>
+
+      </div>
+    </div>
+
+
+    <div style="height:25px;"></div>
+
+
+    <button nz-button nzType="primary" (click)="toBuildCode()" [nzLoading]="isLoading" style="    width: 50%;
+    margin: 0 auto;
+    align-self: center;
+    justify-content: center;
+    justify-items: center;
+    align-items: center;
+    display: block;">
+      立即创建
+    </button>
+
+
+  </div>
+</div>

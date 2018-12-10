@@ -1,0 +1,110 @@
+
+
+<div *ngIf = "!flag">暂无数据</div>
+<div *ngIf = "flag">
+    
+    <div class = "search">
+        <nz-input-group nzSearch [nzSuffix]="suffixIconButton">
+            <input type="text" nz-input placeholder="input search text" class = "search-text">
+        </nz-input-group>
+        <ng-template #suffixIconButton>
+            <!--搜索的图标，对应[nzSuffix]-->
+            <button nz-button nzType="primary" nzSearch (click) = "search()"><i class="anticon anticon-search"></i></button>
+        </ng-template>
+    </div>
+
+    <div *ngFor = "let eva of evadata" class = 'card'>
+        <div *ngIf = "eva.evaluate_detail">
+            <div class = "container" >
+                <table border="0">
+                    <tr>
+                        <td colspan="2" height = 10px;></td>
+                    </tr>
+                    <tr>
+                        <th class = "head" rowspan="2" width = 100px; height = 90px;>
+                            <!--头像-->
+                            <img src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" width="70px;">
+                        </th>
+                        <th class = "text name" valign = bottom>
+                            <!--姓名-->
+                            {{eva.estimator}}
+                        </th>
+                    </tr>
+                    <tr >
+                        <td width = 140px; height = 45px; class = "text color">
+                            {{eva.project_ssociated}}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan = "2" height = 180px; class = "detail" valign = top>
+                            {{eva.evaluate_detail}}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" class = "time" height = "20px">
+                            {{eva.evaluate_time}}
+                        </td>
+                    </tr>
+                    <tr>       
+                        <td colspan = "2" height = 10px;>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        
+        </div>
+
+    <!--以下为评价内容为空-->
+
+        <div *ngIf = "!eva.evaluate_detail">
+            <div class = "container" >
+                <table border="0">
+                    <tr>
+                        <td height = 10px;></td><!--仅用于占位置-->
+                    </tr>
+                    <tr>
+                        <td class = "inv" height = 15px;>
+                            收到的邀请
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class = "head" height = 60px;>
+                        <!--头像-->
+                            <img src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" width="70px;">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td height = 178px; class = "inv-detail" valign = top>
+                            <div class = "det">
+                                {{eva.estimator}}
+                            </div>
+                            <div class = "det color">
+                                {{eva.project_ssociated}}
+                            </div>
+                            <div class = "det" (click) = "im_eva()">
+                                <input class = "btn" type = "button" value = "立即评价">
+                            </div>
+                            <div class = "det" (click) = "look_him()">
+                                <input class = "btn" type = "button" value = "查看个人">
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td  class = "time" height = 20px;>
+                            {{eva.evaluate_time}}
+                        </td>
+                    </tr>
+                    <tr>       
+                        <td  height = 10px;>
+                        <!--仅用于占位置-->
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div class = "page">
+        <nz-pagination [nzPageIndex]="1" [nzTotal]="50"></nz-pagination>
+    </div>
+</div>

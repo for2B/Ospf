@@ -1,0 +1,55 @@
+<!-- 这里是对我的评价 -->
+
+
+<div class = "search">
+        <nz-input-group nzSearch [nzSuffix]="suffixIconButton">
+          <input type="text" nz-input placeholder="input search text" class = "search-text">
+        </nz-input-group>
+        <ng-template #suffixIconButton>
+          <!--搜索的图标，对应[nzSuffix]-->
+          <button nz-button nzType="primary" nzSearch (click) = "search()"><i class="anticon anticon-search"></i></button>
+        </ng-template>
+      </div>
+      
+
+
+<div *ngFor = "let eva of evadata" class = 'card'>
+    <!-- <div *ngIf = "eva.evaluate_detail"> -->
+        <div class = "container" >
+            <table border="0">
+                    <tr>
+                        <td colspan="2" height = 10px;></td>
+                    </tr>
+                    <tr>
+                        <th class = "head" rowspan="2" width = 100px; height = 90px;>
+                            <!--头像-->
+                            <img src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" width="70px;">
+                        </th>
+                        <th class = "text name" valign = bottom>
+                            <!--姓名-->
+                            {{eva.estimated_name}}
+                        </th>
+                    </tr>
+                    <tr >
+                        <td width = 140px; height = 45px; class = "text color">
+                            {{eva.project_ssociated_name}}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan = "2" height = 180px; class = "detail" valign = top>
+                            {{eva.evaluate_detail}}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" class = "time" height = "20px">
+                            {{eva.evaluate_time}}
+                        </td>
+                    </tr>
+                    <tr>       
+                        <td colspan = "2" height = 10px;>
+                        </td>
+                    </tr>
+                </table>
+        </div>
+    <!-- </div> -->
+</div>

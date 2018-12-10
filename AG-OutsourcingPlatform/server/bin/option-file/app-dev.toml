@@ -1,0 +1,51 @@
+AppName="OutsourcingPlatformApp"
+
+DBDriver = "postgres"
+DBHost = "139.199.196.31"
+DBPort = "5432"
+DBUser = "ag"
+DBPassword = "ag123456"
+DBName = "agdb"
+
+#Redis
+RedisHost = ""
+RedisPort = ""
+RedisPwd = ""
+RedisDB = 0
+
+#服务器地址
+serverPort="6616"
+
+#日志文件名称
+errOutPutPath="logger_err.log"
+outPutPath="server.log"
+ConsoleOutPutPath="log/server_console.log"
+JsonOutPutPath="log/server_json.log"
+ErrOutPutPath="log/logger_err.log"
+
+#支持的文件后缀
+suffixes = [
+    "xlsx",
+]
+
+#日志缓冲区
+LoggerBuffer=1000
+
+#日志缓冲区等候时间(秒)
+LoggerBufDuration=5
+
+#会话相关
+SessionKey="ag_outsourcingplatform"
+MaxLifeTime=72000
+Path="/"
+HTTPOnly=false
+MaxAge=72000
+
+origin="http://localhost:4200"
+
+
+#邀请码有效期(秒为单位)
+QrcodeLifeTime=600
+
+#服务器域名
+ServerDomain="localhost"

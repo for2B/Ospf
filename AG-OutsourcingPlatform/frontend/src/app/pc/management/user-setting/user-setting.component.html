@@ -1,0 +1,36 @@
+
+<nz-content style="background-color: #F5F8FC;min-height: 800px;">
+  <nz-spin [nzSpinning]="isSpinning">
+  <button nz-button nzType="primary" [routerLink]="['../../']"> <返回 </button>
+  <div nz-row>
+    <div nz-col nzSpan="20" [nzOffset]="2" class="bar">
+      <nz-divider nzDashed [nzText]="text">
+        <ng-template #text><i class="anticon anticon-setting"></i>权限设置</ng-template>
+      </nz-divider>
+      <div>
+        <label>可登录(启用/禁用):</label>
+        <nz-switch [(ngModel)]="switchValue[0]" [nzControl]="true" (click)="permissionChange(0,!switchValue[0],'AC_1')"></nz-switch>
+        <label>承接项目:</label>
+        <nz-switch [(ngModel)]="switchValue[1]"  [nzControl]="true" (click)="permissionChange(1,!switchValue[1],'AC_2')"></nz-switch>
+        <label>发布项目:</label>
+        <nz-switch [(ngModel)]="switchValue[2]"  [nzControl]="true" (click)="permissionChange(2,!switchValue[2],'AC_4')"></nz-switch>
+        <label>可评论:</label>
+        <nz-switch [(ngModel)]="switchValue[3]" [nzControl]="true" (click)="permissionChange(3,!switchValue[3],'AC_8')"></nz-switch>
+      </div>
+
+    </div>
+  </div>
+
+  <div nz-row style="margin-top: 30px;">
+    <div nz-col nzSpan="20" [nzOffset]="2" class="bar">
+      <nz-divider nzDashed [nzText]="text1">
+        <ng-template #text1><i class="anticon anticon-solution"></i>详细字段信息</ng-template>
+      </nz-divider>
+      <nz-list [nzDataSource]="DATA" nzBordered
+               [nzRenderItem]="item">
+        <ng-template #item let-item><nz-list-item [nzContent]="item"></nz-list-item></ng-template>
+      </nz-list>
+    </div>
+  </div>
+  </nz-spin>
+</nz-content>

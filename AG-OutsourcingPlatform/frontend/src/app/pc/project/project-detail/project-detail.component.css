@@ -1,0 +1,100 @@
+
+.project-detail{
+    white-space:nowrap;
+}
+
+#main-content{
+    background: #ffffff;
+    padding:1rem;
+    margin: 1.2rem;
+    box-sizing: border-box;
+    border-width: 1.3px;
+    border-style: solid;
+    border-color: rgba(234, 236, 239, 1);
+    border-radius: 4px;
+}
+.info-type{
+    font-size: 1.4rem;
+    color: #999999;
+}
+
+#title-button{
+    margin: 0.5rem 0rem;
+}
+
+#title{
+    font-size: 2rem;
+    margin-left:  1.3rem;
+}
+
+/*#button-group{
+     background: #f95e5a;
+    height: 3rem; 
+}*/
+
+.ant-divider-horizontal{
+    height: 1.3px;
+}
+
+#info-item{
+    margin-bottom: 1.8rem;
+}
+
+#subtitle{
+    margin-top: 1.2rem;
+}
+#subtitle-icon{
+    font-size: 2rem;
+    color: #999999
+}
+#subtitle-text{
+    font-size: 1.6rem;
+    color: #999999
+}
+
+#describe-content{
+    /* background: #3399ff;
+    height: 34rem;
+    margin: 1rem; */
+    margin: 1rem ;
+    border: none;
+    border-radius: 4px;
+    background: #f2f2f2;
+}
+#content{
+    padding: 1rem;
+    white-space: normal;
+}
+#team-member{
+    margin: 1rem ;
+    border: none;
+    border-radius: 4px;
+    background: #f2f2f2;
+}
+
+#member-card{
+    padding: 0.5rem;
+}
+
+#list{
+    margin: 1rem;
+}
+
+
+.testdiv{
+    background: #f95e5a;
+    height: 4rem;
+}
+
+#add-member{
+    font-size: 9rem;
+    margin: 3rem 5rem;
+    color: #adabab;
+    cursor: pointer;
+}
+
+#TeammatesNull{
+    font-size: 14px;
+    color: rgba(0,0,0,.45);
+    padding-bottom: 1rem;
+}

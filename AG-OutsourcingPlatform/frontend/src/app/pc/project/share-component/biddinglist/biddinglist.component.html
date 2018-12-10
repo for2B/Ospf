@@ -1,0 +1,66 @@
+<div id="bidding-list"  >
+    <nz-table  
+        #ajaxTable
+        nzShowSizeChanger
+        [nzFrontPagination]="false"
+        [nzData]="biddingList" 
+        [nzLoading]="loading"
+        [nzTotal]="total"
+        [(nzPageIndex)]="pageIndex"
+        [(nzPageSize)]="pageSize"
+        (nzPageIndexChange)="sortBiddlingList()"
+        (nzPageSizeChange)="sortBiddlingList(true)">
+        <thead (nzSortChange)="sort($event)" nzSingleSort>
+            <tr>
+                <th>
+                </th>
+                <th>
+                  <div nz-row nzType="flex" nzJustify="center" nzAlign="middle">姓名</div>
+                </th>
+                <th>
+                  <div nz-row nzType="flex" nzJustify="center" nzAlign="middle">擅长领域</div>
+                </th>
+                <th>
+                  <div nz-row nzType="flex" nzJustify="center" nzAlign="middle">所在地</div>
+                </th>
+                <th  nzShowSort nzSortKey="FinishProjectCount" nz-row nzType="flex" nzJustify="center" nzAlign="middle"><span id="th-count-finish" >完成项目数</span></th>
+                <th  *ngIf="identity==2&&project.project_status!=3&&project.project_status!=4">
+                  <div nz-row nzType="flex" nzJustify="center" nzAlign="middle">操作</div>
+                </th>
+            </tr>
+        </thead>
+        <tbody >
+            <tr  
+              *ngFor="let data of ajaxTable.data" [ngStyle]="{'background':data.identity === 1 ? '#c1ffd4' : '' }"> 
+                <td>
+                  <div nz-row nzType="flex" nzJustify="center" nzAlign="middle">
+                      <nz-card-meta  [nzDescription]="rating" [nzAvatar]="avatarTemplate"></nz-card-meta>
+                  </div>
+                </td>
+                <td>
+                  <div nz-row nzType="flex" nzJustify="center" nzAlign="middle">{{data.name}}</div>
+                </td>
+                <td>
+                  <div nz-row nzType="flex" nzJustify="center" nzAlign="middle">{{data.expertise_field}}</div>
+                </td>
+                <td>
+                  <div nz-row nzType="flex" nzJustify="center" nzAlign="middle">{{data.address}}</div>
+                </td>
+                <td>
+                  <div nz-row nzType="flex" nzJustify="center" nzAlign="middle">{{data.finish_project_count}}</div>
+                </td>
+                <td *ngIf='identity==2&&project.project_status!=3&&project.project_status!=4'>
+                  <div  nz-row nzType="flex" nzJustify="center" nzAlign="middle">
+                    <app-bidlistoperatebutton [BiderIdentity]='data.identity'  [BidderId]='data.user_id' [BidderName]='data.name'></app-bidlistoperatebutton>
+                  </div>
+                </td>
+            </tr>
+        </tbody>
+    </nz-table>
+</div>
+
+
+
+<ng-template #avatarTemplate>
+    <nz-avatar nzSize="large" nzIcon="anticon anticon-user"  style="background-color:#87d068;"></nz-avatar>
+</ng-template>

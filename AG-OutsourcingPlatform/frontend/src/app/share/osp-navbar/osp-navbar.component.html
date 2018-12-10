@@ -1,0 +1,47 @@
+<div class="head">
+  <div class="logo">
+
+    <svg class="icon" aria-hidden="true" style="font-size: 24px;">
+      <use xlink:href="#icon-computer"></use>
+    </svg> &nbsp; 人才外包平台
+  </div>
+  <div class="nav">
+    <ul>
+      <li [routerLink]="['/pc/project/pfprolist']" routerLinkActive="navactive"  >项目</li>
+      <li [routerLink]="['/pc/evaluate']" routerLinkActive="navactive" >评价</li>
+      <li [routerLink]="['/pc/user/invitation_code']" routerLinkActive="navactive" >邀请码</li>
+      <li [routerLink]="['/pc/management']" routerLinkActive="navactive" >管理</li>
+    </ul>
+  </div>
+  <div class="bar-right">
+    <button nz-button nzType="default" nzGhost [routerLink]="['/pc/project/pubproject']" >发布项目</button>
+  </div>
+
+  <div class="bar-right">
+
+
+
+
+
+    <nz-dropdown [nzPlacement]="'bottomRight'" >
+      <a nz-dropdown class="ccx_username">
+        <svg class="icon " aria-hidden="true ">
+          <use xlink:href="#icon-wodedamaijihuo "></use>
+        </svg>&nbsp;
+        {{username}} <i class="anticon anticon-down"></i>
+      </a>
+      <ul nz-menu>
+        <li nz-menu-item>
+          <a routerLink="/pc/user/qualification"> 我的个人资质 </a>
+        </li>
+        <li nz-menu-item>
+          <a routerLink="/pc/project/myprolist"> 我的项目 </a>
+        </li>
+        <li nz-menu-divider></li>
+        <li nz-menu-item (click)="exit()">退出</li>
+      </ul>
+    </nz-dropdown>
+  </div>
+
+</div>
+<div style="height:60px;"></div>

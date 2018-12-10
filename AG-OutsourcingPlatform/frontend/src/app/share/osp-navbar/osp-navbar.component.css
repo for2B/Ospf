@@ -1,0 +1,90 @@
+.head {
+  width: 100%;
+  background-color: rgba(73, 80, 96, 1);
+  min-height: 60px;
+  line-height: 60px;
+  display: flex;
+  color: white;
+  padding:0 70px;
+  position: fixed;
+  z-index: 999;
+}
+
+.logo {
+  margin-right: 28px;
+}
+
+.nav {
+  flex: 1;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+.nav>ul>li {
+  display: inline-block;
+  padding: 0 30px;
+  list-style: none;
+  cursor: pointer;
+}
+.navactive{
+  display: inline-block;
+  padding: 0 30px;
+  list-style: none;
+  cursor: pointer;
+  color: white;
+  background-color: #03A9F4;
+  -webkit-animation: click_nav 0.4s;
+}
+.nav>ul>li:active,
+.nav>ul>li:hover {
+  color: white;
+  background-color: #03A9F4;
+  -webkit-animation: click_nav 0.4s;
+}
+
+.activedNavBtn {
+  color: white;
+  background-color: #03A9F4;
+}
+
+.bar-right {
+
+  margin-left: 20px;
+}
+
+
+
+
+
+@-webkit-keyframes click_nav
+  /* Safari 和 Chrome */
+
+{
+  from {
+    background: rgba(73, 80, 96, 1);
+
+  }
+  to {
+    background: #03A9F4;
+
+  }
+}
+
+[nz-button] {
+  margin-right: 8px;
+  margin-bottom: 12px;
+}
+
+
+.ccx_username{
+  color :white;
+  padding: 20px 20px 20px 0 ;
+}
+
+.ccx_username:hover,.ccx_username:active {
+  color :#096dd9;
+  padding: 20px 20px 20px 0 ;
+}

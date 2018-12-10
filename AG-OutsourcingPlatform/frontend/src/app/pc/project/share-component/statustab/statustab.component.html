@@ -1,0 +1,12 @@
+<div nz-row  >
+  <div  nz-col  nzSpan="4"
+        class="statusText statustab" 
+        *ngFor='let tab of tabGroup.statusTabs;' 
+        [ngClass]="tab.currentClass"
+        (click)="tabclick(tab)"  
+        >
+    <span  nz-row nzType="flex" nzJustify="center" nzAlign="middle" >{{tab.statusText}}&nbsp;&nbsp;{{tab.projectAmount}}
+    </span>
+  </div>
+</div>
+

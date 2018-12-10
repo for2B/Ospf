@@ -1,0 +1,60 @@
+.qrcode{
+  margin:10px auto;
+  height:200px;
+  width:200px;
+  background-color: #f7f7f7;
+}
+
+
+
+.content1{
+  margin:10px;
+  flex:1;
+  min-height: 300px;
+  /*background-color: #9a9ca0;*/
+  display: flex;
+  justify-content: center;
+  align-items:center;
+  flex-direction: column;
+}
+
+.content2{
+  margin:10px;
+  flex:1;
+  min-height: 300px;
+  /*background-color: palevioletred;*/
+  display: flex;
+  justify-content: center;
+  align-items:center;
+  flex-direction: column;
+
+}
+.ospf_loading{
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-items: center;
+  align-content: center;
+  justify-content: center;
+  height: 200px;
+}
+
+
+.circle{
+  margin: 10px auto;
+  width: 20px;
+  height: 20px;
+  border: 1px white solid;
+  /*border-left-color: #0c80fe;*/
+  border-right-color:#0c80fe;
+  border-radius: 100%;
+  animation: loading1 1s infinite linear;
+}
+@keyframes loading1{
+  from{transform: rotate(0deg)}to{transform: rotate(360deg)}
+}
+
+
+.qrcode img{
+  height:100%;
+}

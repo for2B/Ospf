@@ -1,0 +1,49 @@
+<div class="item">
+  
+  <div (click)="seeDetail()">
+    <div id="row-head"  nz-row  nzType="flex" nzAlign="middle" >
+      <div id="head-title" nz-col nzSpan="7"   >
+        {{project.project_name}}
+      </div>
+      <app-prostatus  nz-col nzSpan="5" nzOffset="12" 
+      [Status]=project.project_status 
+      [Identity]=Identity 
+      [ProjectId]="project.project_id" 
+      [showPlace]="'item'"></app-prostatus>
+    </div>
+
+    <div id="row-money-cycle" nz-row  nzType="flex" nzJustify="space-around" >
+      <div  id="col-money" nz-col nzSpan="8"  nz-row >
+        <label id="label-money" nz-col  nzSpan="10">项目预算：</label>
+        <label id="money" nz-col nzSpan="8" style="color:#4BD863" >￥{{project.project_money}}</label>
+      </div>
+      <div id="col-cycle" nz-col  nzSpan="8"  nz-row >
+        <label id="label-date"  nz-col nzSpan="10"   >项目周期：</label>
+        <label id="date"   nz-col nzSpan="8" style="color:#FE9400;">{{project.project_circle}}天</label>
+      </div>
+    </div>
+        
+    <div id="row-pubdate-compnums" nz-row nzType="flex" nzJustify="space-around">
+      <div  id="col-pubdate" nz-col nzSpan="8"   nz-row >
+        <label id="label-pubdate" nz-col nzSpan="10" >发布日期：</label>
+        <label id="pubdate" nz-col nzSpan="8"  >{{project.project_publish_time}}</label>
+      </div>
+      <div id="col-compnums" nz-col  nzSpan="8"  nz-row  >
+        <label id="label-compnums"  nz-col  nzSpan="10" >竞标人数：</label>
+        <label id="compnums"   nz-col nzSpan="8" style="color:#2DB7F5;">{{project.competitors_nums}}人</label>
+      </div>
+    </div>
+    <div id="pro-detail" >
+      <div id="detail" [froalaView]="project.project_detail"></div>
+    </div>
+  </div>
+
+  <div id="row-button"  >
+    <app-bottom-button [Identity]=Identity [project]=project [showPlace]="'item'"  ></app-bottom-button>
+  </div>
+
+</div>
+
+
+
+

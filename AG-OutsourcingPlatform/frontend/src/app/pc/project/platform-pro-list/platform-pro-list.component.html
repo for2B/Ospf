@@ -1,0 +1,28 @@
+<app-selectgroup (SelectOption)="getselect($event)"></app-selectgroup>
+
+<div id="pro-list" >
+  <app-projectitem  class="proitem"  *ngFor="let project of project_list" [project]=project  ></app-projectitem>
+</div>
+<div  nz-row nzType="flex" nzJustify="center" *ngIf="list_null" id="list-null" >
+  项目列表为空
+</div>
+<div nz-row  nzType="flex" nzJustify="center">
+  <nz-pagination
+  [nzPageIndex]="CurrentPage"
+  [nzTotal]="TotalNums"
+  nzShowSizeChanger [nzPageSize]="10"
+  (nzPageIndexChange)="ChangePage($event)"
+  (nzPageSizeChange)="ChangeSize($event)"
+  ></nz-pagination>
+</div>
+
+  <!-- <div nz-row >
+    <app-projectitem class="proitem" nz-col   nzSpan="11" *ngFor="let i of arr" ></app-projectitem>
+  </div> -->
+
+  <!-- <froala-editor></froala-editor> -->
+
+
+
+
+ 

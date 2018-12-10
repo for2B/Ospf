@@ -1,0 +1,15 @@
+#pro-list{
+    -webkit-column-count: 2;
+    -moz-column-count: 2;
+    column-count: 2;
+    -moz-column-gap:1rem;
+    /* column-width: 601.6px; */
+    -webkit-column-gap:1rem;
+    column-gap:1rem;
+}
+ 
+#list-null{
+    margin: 10rem;
+    font-size: 1.4rem;
+}
+

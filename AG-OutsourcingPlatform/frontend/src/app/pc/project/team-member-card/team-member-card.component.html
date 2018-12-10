@@ -1,0 +1,35 @@
+    <nz-card   id="teammate-card" [nzActions] ="
+    buttonStyle == 1?
+    [actionEvaluation, actionLook, actionDelete]:
+    buttonStyle == 2? [actionAdd, actionLook]:
+    buttonStyle == 3? [actionEvaluation, actionLook]:
+    [actionLook]" >
+      <nz-card-meta [nzTitle]="TeammateName" [nzDescription]="rating" [nzAvatar]="avatarTemplate"></nz-card-meta>
+      <div class="tagList">
+        <nz-tag *ngFor="let tag of member?.Expertise_field; let i = index" [nzColor]="color[i]">{{tag}}</nz-tag>
+      </div>
+      <div class="tel" *ngIf="openPhone">
+        TEL: {{member?.Phone}}
+      </div>
+      <div class="location">
+        {{member?.Location}}
+      </div>
+    </nz-card>
+    <ng-template #avatarTemplate>
+      <nz-avatar nzSize="large" nzSrc="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"></nz-avatar>
+    </ng-template>
+    <ng-template #actionAdd >
+      <button nz-button nzType="primary">添加</button>
+    </ng-template>
+    <ng-template #actionEvaluation >
+      <button nz-button nzType="primary">评价</button>
+    </ng-template>
+    <ng-template #actionLook>
+      <button nz-button nzType="primary">查看</button>
+    </ng-template>
+    <ng-template #actionDelete >
+     <button nz-button nzType="danger" (click)="DeleteMemberFromTeam()">移除</button>
+    </ng-template>
+    <ng-template #rating>
+      <nz-rate  [ngModel]="5" [nzAllowHalf]="true" disabled="disabled"></nz-rate>
+    </ng-template>

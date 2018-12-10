@@ -1,0 +1,24 @@
+
+<div [ngSwitch]="ButtonType" >
+    <button *ngSwitchCase="'chooes'" class="chooes" (click)="chooes(ChooesContractor)" >选为承包者</button>
+    <button *ngSwitchCase="'cancel'" class="cancel" (click)="cancel(CancelContractor)" >取消选择</button>
+    <button *ngSwitchCase="'forbidchooes'" class="forbidchooes" disabled>选为承包者</button>
+</div>
+ 
+<ng-template #ChooesContractor >
+    <p>
+    确定选择
+    【<span style="color: #2DB7F5">{{BidderName}}</span> 】
+    作为项目承包者吗？
+    </p>
+</ng-template>
+
+<ng-template #CancelContractor >
+        <p>
+        确定取消
+        【<span style="color: #2DB7F5">{{BidderName}}</span> 】
+        作为项目承包者吗？
+        </p>
+</ng-template>
+    
+    

@@ -1,0 +1,67 @@
+<div id="publish-project" >
+  <div id="breadcrumb" >
+    <nz-breadcrumb nzSeparator=">">
+      <nz-breadcrumb-item><a style="color:#56a6fd" [routerLink]="['/pc/project/pfprolist']">项目</a></nz-breadcrumb-item>
+      <nz-breadcrumb-item>发布项目</nz-breadcrumb-item>
+    </nz-breadcrumb>
+  </div>
+  <div id="publish-content" >
+      <form  id="pro-form" nz-form [formGroup]="validateForm" (ngSubmit)="submitForm()" >
+        <nz-form-item>
+          <nz-form-label class="input-label" [nzSm]="8" [nzXs]="24" nzRequired nzFor="title">项目标题</nz-form-label>
+          <nz-form-control [nzSm]="8" [nzXs]="24" >
+              <input type="text" nz-input formControlName="title" id="title" ng-minl>
+              <nz-form-explain *ngIf="validateForm.get('title').dirty && validateForm.get('title').errors">
+                <ng-container *ngIf="validateForm.get('title').hasError('required')">
+                  标题不能为空
+                </ng-container>
+                <ng-container *ngIf="validateForm.get('title').hasError('maxlength')">
+                  标题字数不能超过20个字
+                </ng-container>
+              </nz-form-explain>
+          </nz-form-control>
+        </nz-form-item>
+
+        <nz-form-item>
+          <nz-form-label class="input-label" [nzSm]="8" [nzXs]="24" nzFor="money" nzRequired>项目金额</nz-form-label>
+          <nz-form-control [nzSm]="8" [nzXs]="24"  >
+            <nz-input-group nzAddOnBeforeIcon="anticon anticon-pay-circle-o">
+              <nz-input-number formControlName="money" id="'money'"  [nzMin]="1" [nzMax]="999999999999" style="width:100%"></nz-input-number>
+            </nz-input-group>
+            <nz-form-explain *ngIf="validateForm.get('money').dirty && validateForm.get('money').errors">项目金额不能为空</nz-form-explain>
+          </nz-form-control>
+        </nz-form-item>
+        
+        <nz-form-item>
+          <nz-form-label class="input-label" [nzSm]="8" [nzXs]="24" nzFor="cycle" nzRequired>项目周期</nz-form-label>
+          <nz-form-control [nzSm]="8" [nzXs]="24" >
+              <nz-input-group nzAddOnAfter="天">
+                <nz-input-number nz-input id="cycle" formControlName="cycle" placeholder="cycle" [nzMin]="1" [nzMax]="999999999999" style="width:100%"></nz-input-number>
+              </nz-input-group>
+            <nz-form-explain *ngIf="validateForm.get('cycle').dirty && validateForm.get('cycle').errors">项目周期不能空</nz-form-explain>
+          </nz-form-control>
+        </nz-form-item>
+      
+        <nz-form-item>
+          <nz-form-label class="input-label" [nzSm]="8" [nzXs]="24"  nzRequired>项目需求</nz-form-label>
+          <nz-form-control [nzSm]="16" [nzXs]="24" >
+            <div nz-row [nzGutter]="16">
+              <div nz-col [nzSpan]="16">
+                <froala-editor  id="prorequire" (froala)="getText($event)" ></froala-editor>
+              </div>
+            </div>
+          </nz-form-control>
+        </nz-form-item>
+        
+        <nz-form-item nz-row style="margin-bottom:8px;">
+          <nz-form-control [nzSpan]="14" [nzOffset]="9">
+            <button id="pubpro-button" nz-button [nzLoading]="isLoading" nzType="primary">发布项目</button>
+          </nz-form-control>
+        </nz-form-item>
+      </form>
+
+  </div>
+</div>
+
+
+{{ProText}}

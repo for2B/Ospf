@@ -1,0 +1,8 @@
+
+#模拟登陆成功后跳转的域名
+ ClientDomain="chl.ish2b.cn/ospf"
+
+#微信公众号相关
+AppID="wx9fb20dfa92465ddd"
+AppSecret="dabb1e39a2d573f5eef528e45db9253a"
+

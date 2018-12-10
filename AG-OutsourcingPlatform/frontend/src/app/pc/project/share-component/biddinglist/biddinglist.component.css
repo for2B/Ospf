@@ -1,0 +1,7 @@
+#th-count-finish{
+    padding-left: 10px;
+}
+
+.ant-table-tbody>tr.ant-table-row-hover>td, .ant-table-tbody>tr:hover>td, .ant-table-thead>tr.ant-table-row-hover>td, .ant-table-thead>tr:hover>td {
+    background: rgba(250, 250, 250, 0);
+}

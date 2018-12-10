@@ -1,0 +1,20 @@
+.wrap {
+  display: flex;
+  flex-direction: column;
+}
+.main {
+  flex: 1;
+  background-color: white;
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+
+.main::-webkit-scrollbar {
+  display: none;
+}
+
+.ag_outlet{
+  padding: 10px 70px;
+
+}
+

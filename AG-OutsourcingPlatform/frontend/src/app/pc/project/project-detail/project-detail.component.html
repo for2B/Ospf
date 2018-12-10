@@ -1,0 +1,130 @@
+<div class="project-detail">
+    <div id="all-content">
+        <div id="breadcrumb" >
+            <nz-breadcrumb nzSeparator=">">
+              <nz-breadcrumb-item><a style="color:#56a6fd" (click)="goBack()" >{{breadCrumbText}}</a></nz-breadcrumb-item>
+              <nz-breadcrumb-item>项目详情</nz-breadcrumb-item>
+            </nz-breadcrumb>
+        </div>
+        <div id="main-content">
+
+            <div id="title-button" nz-row nzType="flex" nzAlign="middle" >
+                <div id="title" nz-col nzSpan="3" >
+                    项目详情
+                </div>
+                <div id="button-group"  nz-col nzSpan="7" nzOffset="13"  >
+                    <div nz-row nzType="flex" nzJustify="end">
+                        <app-bottom-button nz-col [Identity]=userIdentity [project]=project [showPlace]="'detail'" ></app-bottom-button>
+                    </div>
+                </div>
+            </div>
+
+            <nz-divider></nz-divider>
+
+            <div id="project-info" >
+                <div id="info-item" nz-row >
+                    <div id="info-status" class="info-type" nz-col nzSpan="3" nzOffset="1" >
+                        <div nz-row nzType="flex" nzJustify="center" nzAlign="middle">
+                            <i class="anticon anticon-hourglass" ></i>
+                            <span >项目状态</span>
+                        </div>
+                    </div>
+                    <div id="info-money" class="info-type" nz-col nzSpan="3" nzOffset="3">
+                        <div nz-row nzType="flex" nzJustify="center" nzAlign="middle">
+                            <i class="anticon anticon-pay-circle-o"></i>
+                            <span>项目预算</span>
+                        </div>
+                    </div>
+                    <div id="info-date" class="info-type" nz-col nzSpan="3" nzOffset="3">
+                        <div nz-row nzType="flex" nzJustify="center" nzAlign="middle">
+                            <i class="anticon anticon-calendar"></i>
+                            <span>项目周期</span>
+                        </div>
+                    </div>
+                    <div id="info-publish-date" class="info-type" nz-col nzSpan="3" nzOffset="3">
+                        <div nz-row nzType="flex" nzJustify="center" nzAlign="middle">
+                            <i class="anticon anticon-schedule"></i>
+                            <span>发布日期</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="data-item" nz-row>
+                    <div id="data-status" class="info-type" nz-col nzSpan="3" nzOffset="1">
+                        <div nz-row nzType="flex" nzJustify="center" nzAlign="middle">
+                            <app-prostatus 
+                            [Status]='project.project_status' 
+                            [Identity]=userIdentity 
+                            [ProjectId]="project.project_id" 
+                            [showPlace]="'detail'"></app-prostatus>
+                        </div>
+                    </div>
+                    <div id="data-money" class="info-type" nz-col nzSpan="3" nzOffset="3">
+                        <div nz-row nzType="flex" nzJustify="center" nzAlign="middle">
+                            <span style="color:#4BD863">{{project.project_money}}</span>
+                        </div>
+                    </div>
+                    <div id="data-date" class="info-type" nz-col nzSpan="3" nzOffset="3">
+                        <div nz-row nzType="flex" nzJustify="center" nzAlign="middle">
+                            <span style="color:#FE9400;">{{project.project_circle}}天</span>
+                        </div>
+                    </div>
+                    <div id="data-publish-date" class="info-type" nz-col nzSpan="3" nzOffset="3">
+                        <div nz-row nzType="flex" nzJustify="center" nzAlign="middle">
+                            <span style="color:#666666">{{project.project_publish_time}}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <nz-divider></nz-divider>
+
+            <div id="project-describe" >
+                <div id="subtitle-describe" nz-row nzType="flex" nzAlign="middle" >
+                    <i id="subtitle-icon" class="anticon anticon-tag-o" nz-col nzSpan="1"></i>
+                    <span id="subtitle-text" nzSpan="3" >需求描述</span>
+                </div>
+                <div id="describe-content">
+                    <div id="content" [froalaView]="project.project_detail"></div>
+                </div>
+            </div>
+
+            <div *ngIf=" project.project_status!=1 && userIdentity!=3 " id="team"  >
+                <div id="subtitle-describe" nz-row nzType="flex" nzAlign="middle" >
+                    <i class="anticon anticon-team" id="subtitle-icon" nz-col nzSpan="1"></i>
+                    <span id="subtitle-text" nzSpan="3" >团队成员</span>
+                </div>
+                <div id="team-member" >
+                    <div id="content" nz-row>
+                        <app-team-member-card 
+                        *ngFor = 'let teammate of teammates'
+                        id="member-card" nz-col nzSpan="6"
+                        [uid]=teammate.Uid [buttonStyle]=teammate.ButtonStyle [projectId]="1" [openPhone]="true" [TeamIdentity]=teammate.Identity
+                         >
+                        </app-team-member-card>
+                        <div *ngIf="UserIdentity==1&&(project.project_status==2||project.project_status==3)" id="add-member" nz-col nzSpan="6" nz-row nzType="flex" nzJustify="center" >
+                            <i class="anticon anticon-plus-square-o"></i>
+                        </div>
+                    </div>
+                    <div *ngIf="!teammates" nz-row nzType="flex" nzJustify="center" nzAlign="middle" >
+                        <p id="TeammatesNull">无团队成员</p>
+                    </div>
+                </div>
+            </div>
+    
+            <div id="bidding-list" >
+                <div id="subtitle-describe" nz-row nzType="flex" nzAlign="middle" >
+                    <i class="anticon anticon-star-o" id="subtitle-icon" nz-col nzSpan="1"></i>
+                    <span id="subtitle-text" nzSpan="3" >竞标者列表</span>
+                </div>
+                <div id="list" >
+                    <div id="content">
+                      <app-biddinglist [Identity]=userIdentity></app-biddinglist>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        
+    </div>
+</div>

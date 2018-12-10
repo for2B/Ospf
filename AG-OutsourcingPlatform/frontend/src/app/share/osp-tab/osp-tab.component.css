@@ -1,0 +1,101 @@
+
+.active{
+  height: auto;
+  background-color: #ffffff;
+  width: 120px;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  padding:10px 0;
+  margin: 10px 0;
+  border-right: 2px solid #2196F3;
+  color:#2196F3;
+}
+
+.osp_tab {
+  height: auto;
+  text-align: left;
+  padding: 6px 0;
+  background-color: #ffffff;
+  width: 120px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  border-right: 2px solid #f7f3f3;
+}
+
+ .menu {
+  height: auto;
+  background-color: #ffffff;
+  width: 120px;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  padding:10px 0;
+  border-right: 2px solid #f7f3f3;
+  margin: 10px 0;
+   cursor: pointer;
+   transition: all 0.3s cubic-bezier(.645,.045,.355,1);
+}
+.menu:hover{
+  height: auto;
+  background-color: #ffffff;
+  width: 120px;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  padding:10px 0;
+  margin: 10px 0;
+  border-right: 2px solid #2196F3;
+  cursor: pointer;
+  /*opacity: 0.2;*/
+  /*-webkit-animation: hover_tab 0.4s;*/
+  color:#2196F3;
+  transition: none;
+}
+.menu:active{
+
+  height: auto;
+  background-color: #ffffff;
+  width: 120px;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  padding:10px 0;
+  margin: 10px 0;
+  border-right: 2px solid #2196F3;
+  color:#2196F3;
+  cursor: pointer;
+  opacity: 0.1;
+  transition: none;
+
+}
+
+@-webkit-keyframes hover_tab
+  /* Safari 和 Chrome */
+
+{
+  from {
+  }
+  to {
+  color:#2196F3
+  }
+}
+
+@-webkit-keyframes click_tab
+  /* Safari 和 Chrome */
+
+{
+  from {
+ opacity: 1;
+  }
+  to {
+  opacity: 0.2;
+  }
+}
+
+.wrap{
+  display: flex;
+  flex-direction: row;
+
+}

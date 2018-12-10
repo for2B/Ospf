@@ -1,0 +1,11 @@
+#add{
+  width: 5rem;
+  height: 5rem;
+  line-height: 4rem;
+  text-align: center;
+  background: #008aff;
+  font-size: 5rem;
+  border-radius: 100%;
+
+  color: white;
+}

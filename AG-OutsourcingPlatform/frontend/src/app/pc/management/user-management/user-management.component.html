@@ -1,0 +1,80 @@
+<nz-content style="background-color: #F5F8FC">
+
+
+    <div nz-row>
+        <div nz-col nzSpan="20" [nzOffset]="2" class="bar">
+            <div>
+                <label for="search" class="barlabel">综合搜索：</label>
+                <input nz-input placeholder="支持模糊搜索" id="search">
+
+                <label class="barlabel">权限状态：</label>
+                <nz-select style="width: 120px;" [(ngModel)]="selectedPowerValue">
+                    <nz-option nzValue="all" nzLabel="不限"></nz-option>
+                    <nz-option nzValue="release" nzLabel="发布项目"></nz-option>
+                    <nz-option nzValue="accept" nzLabel="承接项目"></nz-option>
+                    <nz-option nzValue="evaluate" nzLabel="评价"></nz-option>
+                </nz-select>
+
+                <label class="barlabel">启用状态：</label>
+                <nz-select style="width: 120px;" [(ngModel)]="selectedStatValue">
+                    <nz-option nzValue="all" nzLabel="不限"></nz-option>
+                    <nz-option nzValue="able" nzLabel="启用"></nz-option>
+                    <nz-option nzValue="disable" nzLabel="禁用"></nz-option>
+                </nz-select>
+
+                <button nz-button nzType="primary" class="barbtn">重置</button>
+                <button nz-button nzType="primary" class="barbtn">查找</button>
+            </div>
+        </div>
+    </div>
+
+    <div nz-row>
+        <div nz-col nzSpan="20" [nzOffset]="2" class="main">
+            <div>
+                <label style="margin-left:1rem;font-size: larger;font-weight: bolder">用户列表</label>
+                <div style="position: absolute;right: 1rem;display: inline-block">
+                    <button nz-button nzType="primary" class="mainbtn">授予发布权限</button>
+                    <button nz-button nzType="primary" class="mainbtn">撤销发布权限</button>
+                    <button nz-button nzType="primary" class="mainbtn">启用</button>
+                    <button nz-button nzType="primary" class="mainbtn">禁用</button>
+                    <button nz-button nzType="primary" class="mainbtn">删除</button>
+                </div>
+            </div>
+            <nz-table #rowSelectionTable [nzData]="dataSet" (nzCurrentPageDataChange)="currentPageDataChange($event)" (nzPageIndexChange)="refreshStatus(true,dataSet)" (nzPageSizeChange)="refreshStatus(true,dataSet)">
+                <thead>
+                    <tr>
+                        <th nzShowCheckbox [(nzChecked)]="allChecked" [nzIndeterminate]="indeterminate" (nzCheckedChange)="checkAll($event)"></th>
+                        <th>姓名</th>
+                        <th>电话</th>
+                        <th>位置</th>
+                        <th>创建时间</th>
+                        <th>修改时间</th>
+                        <th>启用状态</th>
+                        <th>权限</th>
+                        <th>操作</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let data of dataSet; let i = index;">
+                        <td nzShowCheckbox [(nzChecked)]="data.checked" (nzCheckedChange)="refreshStatus($event,data)"></td>
+                        <td>{{data.Name}}</td>
+                        <td>{{data.Phone}}</td>
+                        <td>{{data.Location}}</td>
+                        <td>{{data.Create_time| date:'yyyy-MM-dd HH:mm:ss'}}</td>
+                        <td>{{data.Change_time| date:'yyyy-MM-dd HH:mm:ss'}}</td>
+                        <td>
+                            <nz-switch [(ngModel)]="data.State" [nzControl]="true" (click)="switchChange(i, data.Uid)" name="header"></nz-switch>
+                        </td>
+                        <td>{{data.power}}</td>
+                        <td>
+                            <a>撤销发布权限&nbsp;&nbsp;&nbsp;</a>
+                            <a>&nbsp;查看&nbsp;&nbsp;&nbsp;</a>
+                            <a>&nbsp;删除</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </nz-table>
+        </div>
+    </div>
+
+</nz-content>
