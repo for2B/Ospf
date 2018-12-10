@@ -3,6 +3,7 @@
 pkg
 .idea
 compiled
+my.db.lock
 node_modules
 .awcache
 *.exe
