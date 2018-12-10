@@ -3,11 +3,11 @@
 pkg
 .idea
 compiled
-my.db.lock
+
 node_modules
 .awcache
 *.exe
-*.db
+
 *.log
 panic
 /server/src/OutsourcingPlatform/app/debug
