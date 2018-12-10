@@ -28,6 +28,7 @@ func (p *program) Start() error {
 
 	//load options from terminal
 	proDir, err := utils.GetProDir()
+	fmt.Println(proDir)
 	if err != nil {
 		log.Panicln("get prodir err: " + err.Error())
 	}
