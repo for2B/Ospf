@@ -1,16 +1,17 @@
-// +build !windows,!plan9
-
 package bolt
 
 import (
+	"fmt"
 	"os"
 	"syscall"
 	"time"
 	"unsafe"
+
+	"golang.org/x/sys/unix"
 )
 
 // flock acquires an advisory lock on a file descriptor.
-func flock(f *os.File, timeout time.Duration) error {
+func flock(db *DB, mode os.FileMode, exclusive bool, timeout time.Duration) error {
 	var t time.Time
 	for {
 		// If we're beyond our timeout then return an error.
@@ -20,12 +21,21 @@ func flock(f *os.File, timeout time.Duration) error {
 		} else if timeout > 0 && time.Since(t) > timeout {
 			return ErrTimeout
 		}
-
-		// Otherwise attempt to obtain an exclusive lock.
-		err := syscall.Flock(int(f.Fd()), syscall.LOCK_EX|syscall.LOCK_NB)
+		var lock syscall.Flock_t
+		lock.Start = 0
+		lock.Len = 0
+		lock.Pid = 0
+		lock.Whence = 0
+		lock.Pid = 0
+		if exclusive {
+			lock.Type = syscall.F_WRLCK
+		} else {
+			lock.Type = syscall.F_RDLCK
+		}
+		err := syscall.FcntlFlock(db.file.Fd(), syscall.F_SETLK, &lock)
 		if err == nil {
 			return nil
-		} else if err != syscall.EWOULDBLOCK {
+		} else if err != syscall.EAGAIN {
 			return err
 		}
 
@@ -35,15 +45,26 @@ func flock(f *os.File, timeout time.Duration) error {
 }
 
 // funlock releases an advisory lock on a file descriptor.
-func funlock(f *os.File) error {
-	return syscall.Flock(int(f.Fd()), syscall.LOCK_UN)
+func funlock(db *DB) error {
+	var lock syscall.Flock_t
+	lock.Start = 0
+	lock.Len = 0
+	lock.Type = syscall.F_UNLCK
+	lock.Whence = 0
+	return syscall.FcntlFlock(uintptr(db.file.Fd()), syscall.F_SETLK, &lock)
 }
 
 // mmap memory maps a DB's data file.
 func mmap(db *DB, sz int) error {
-	b, err := syscall.Mmap(int(db.file.Fd()), 0, sz, syscall.PROT_READ, syscall.MAP_SHARED)
+	// Map the data file to memory.
+	b, err := unix.Mmap(int(db.file.Fd()), 0, sz, syscall.PROT_READ, syscall.MAP_SHARED|db.MmapFlags)
 	if err != nil {
 		return err
+	}
+
+	// Advise the kernel that the mmap is accessed randomly.
+	if err := unix.Madvise(b, syscall.MADV_RANDOM); err != nil {
+		return fmt.Errorf("madvise: %s", err)
 	}
 
 	// Save the original byte slice and convert to a byte array pointer.
@@ -61,7 +82,7 @@ func munmap(db *DB) error {
 	}
 
 	// Unmap using the original byte slice.
-	err := syscall.Munmap(db.dataref)
+	err := unix.Munmap(db.dataref)
 	db.dataref = nil
 	db.data = nil
 	db.datasz = 0
