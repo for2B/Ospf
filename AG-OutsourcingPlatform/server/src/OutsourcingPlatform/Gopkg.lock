@@ -114,17 +114,9 @@
   revision = "ff33455a0e382e8a81d14dd7c922020b6b5e7982"
   version = "v1.9.1"
 
-[[projects]]
-name = "github.com/judwhite/go-svc"
-packages = ["svc"]
-revision = "63c12402f579f0bdf022653c821a1aa5d7544f01"
-version = "v1.0.0"
-
-
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
-  inputs-digest = "90885fafea38b87a861c1dfc580d3f79b7df8504d9022b012d86c11727057fa9"
+  inputs-digest = "1dc6e78792cd93c503857040ab21e89fa045b31df91d46eea76145a44dfb6577"
   solver-name = "gps-cdcl"
   solver-version = 1
-  
