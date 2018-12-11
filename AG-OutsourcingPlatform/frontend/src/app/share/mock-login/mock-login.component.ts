@@ -3,7 +3,7 @@ import {Title} from '@angular/platform-browser';
 import {PubHttpService} from '../../services/HttpService/pub-http.service';
 import {MockLoginService} from './mock-login.service';
 import {ActivatedRoute, Route} from '@angular/router';
-
+import {URL_MOCK_LOGIN} from '../../const/const_chencanxin'
 @Component({
   selector: 'app-mock-login',
   templateUrl: './mock-login.component.html',
@@ -38,7 +38,7 @@ export class MockLoginComponent implements OnInit {
     {
       redirectURL="/";
     }
-    let url = 'http://localhost:6616/api/mock_login?redirectURL=' + redirectURL + '&userType=' + this.radioValue;
+    let url = URL_MOCK_LOGIN+'?redirectURL=' + redirectURL + '&userType=' + this.radioValue;
     console.log(url)
 
     window.open(url, '_self');
