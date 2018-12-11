@@ -2,8 +2,8 @@
 
 
 
-export const domain="http://localhost:6616"
-
+// export const domain="http://localhost:6616"
+export const domain="http://chuil.online:6616"
 export const REFEREE_QRCODE_TYPE="REFEREE"
 export const NORMAL_QRCODE_TYPE="NORMAL"
 
