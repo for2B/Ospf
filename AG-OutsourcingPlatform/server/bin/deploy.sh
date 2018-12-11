@@ -65,22 +65,22 @@ fi
 if [ ! -z `lsof -i:6616 -t` ];then
 APP_PID=$(lsof -i:6616 -t)
      kill -9 $APP_PID
-     echo "kill ospf succeess!"
+     echo "kill ospfdev succeess!"
 fi
 
-if [ -f "$BIN_PATH/ospf" ];then
-	rm $BIN_PATH/ospf
-  echo "delete ospf success!"
+if [ -f "$BIN_PATH/ospfdev" ];then
+	rm $BIN_PATH/ospfdev
+  echo "delete ospfdev success!"
 else 
-	echo "no ospf"
+	echo "no ospfdev"
 fi
 
-mv ./ospf $BIN_PATH
+mv ./ospfdev $BIN_PATH
 if [ $? -eq 0 ];then
     echo "move file succeess!"
 fi
 
-nohup $BIN_PATH/ospf &
+nohup $BIN_PATH/ospfdev &
 if [ $? -ne 0 ]; then
      exit 1
 else
