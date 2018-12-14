@@ -4,12 +4,12 @@ import (
 	"fmt"
 	"log"
 	"syscall"
+	"github.com/judwhite/go-svc/svc"
 
 	"OutsourcingPlatform/ospf/infrastructure/option"
 	"OutsourcingPlatform/utils"
 	"flag"
 	"sync/atomic"
-	"github.com/judwhite/go-svc/svc"
 	"OutsourcingPlatform/ospf"
 )
 

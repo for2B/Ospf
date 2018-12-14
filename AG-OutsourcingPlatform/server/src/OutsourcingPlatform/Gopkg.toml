@@ -31,11 +31,15 @@
 
 [[constraint]]
   name = "github.com/asdine/storm"
-  version = "2.1.1"
+  version = "2.1.2"
 
 [[constraint]]
   name = "github.com/gorilla/mux"
   version = "1.6.2"
+
+[[constraint]]
+  name = "github.com/judwhite/go-svc"
+  version = "1.0.0"
 
 [[constraint]]
   name = "github.com/lib/pq"

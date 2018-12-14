@@ -33,6 +33,12 @@
   version = "v1.6.2"
 
 [[projects]]
+  name = "github.com/judwhite/go-svc"
+  packages = ["svc"]
+  revision = "63c12402f579f0bdf022653c821a1aa5d7544f01"
+  version = "v1.0.0"
+
+[[projects]]
   name = "github.com/klauspost/compress"
   packages = [
     "flate",
@@ -86,8 +92,8 @@
 [[projects]]
   name = "go.etcd.io/bbolt"
   packages = ["."]
-  revision = "aa66506030b376f848667d84d2596faa8a7099ea"
-  version = "v1.0"
+  revision = "583e8937c61f1af6513608ccc75c97b6abdf4ff9"
+  version = "v1.3.0"
 
 [[projects]]
   name = "go.uber.org/atomic"
@@ -114,9 +120,19 @@
   revision = "ff33455a0e382e8a81d14dd7c922020b6b5e7982"
   version = "v1.9.1"
 
+[[projects]]
+  branch = "master"
+  name = "golang.org/x/sys"
+  packages = [
+    "unix",
+    "windows",
+    "windows/svc"
+  ]
+  revision = "2a47403f2ae58167c4d75973960ccc62b28cb0d8"
+
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
-  inputs-digest = "1dc6e78792cd93c503857040ab21e89fa045b31df91d46eea76145a44dfb6577"
+  inputs-digest = "2de818a50f3ab39fcfb469f5ff63c672a3ce544e91f17a2f026a778065cd4072"
   solver-name = "gps-cdcl"
   solver-version = 1
