@@ -55,7 +55,7 @@ func newHTTPServer(ctx *context) *httpServer {
 	//router.PathPrefix("/").HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 	//	view.GzipServeFile(w, r, ctx.ospf.infrastructure.GetOpts().FrontDir+"index.html")
 	//})
-	router.PathPrefix("/").Handler(http.StripPrefix("/", http.FileServer(http.Dir(ctx.ospf.infrastructure.GetOpts().FrontDir))))
+	router.PathPrefix("/ospf/").Handler(http.StripPrefix("/ospf/", http.FileServer(http.Dir(ctx.ospf.infrastructure.GetOpts().FrontDir))))
 
 	return s
 }
