@@ -3,7 +3,9 @@
 
 
 // export const domain="http://localhost:6616"
-export const domain="http://chuil.online:6616" //开发 生成 发布均要一个
+// export const domain="http://chuil.online:6616" //开发 生成 发布均要一个
+export const domain="http://chuil.online/ospf" //开发 生成 发布均要一个
+
 export const REFEREE_QRCODE_TYPE="REFEREE"
 export const NORMAL_QRCODE_TYPE="NORMAL"
 

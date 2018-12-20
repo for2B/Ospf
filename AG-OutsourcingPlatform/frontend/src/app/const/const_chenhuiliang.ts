@@ -1,7 +1,9 @@
 import { Member } from "../services/panjiawei/users";
 
-export const SITE_HOST_URL = "http://chuil.online:6616";
+// export const SITE_HOST_URL = "http://chuil.online:6616";
 // export const SITE_HOST_URL = "http://localhost:6616";
+export const SITE_HOST_URL = "http://chuil.online/ospf";
+
 export const UPLOAD_FILE = '/api/upload_file';
 export const PUBLISH_PROJECT = '/api/publish_project';
 export const GET_PLATFORM_PROJECT = '/api/get_project_list'

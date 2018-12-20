@@ -42,7 +42,7 @@ HTTPOnly=false
 MaxAge=72000
 
 #开发 生产 发布
-origin="http://chuil.online"
+origin="http://chuil.online/ospf/"
 
 
 #邀请码有效期(秒为单位)
