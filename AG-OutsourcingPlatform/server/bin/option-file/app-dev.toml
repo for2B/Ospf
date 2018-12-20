@@ -41,7 +41,8 @@ Path="/"
 HTTPOnly=false
 MaxAge=72000
 
-origin="http://localhost:4200"
+#开发 生产 发布
+origin="http://chuil.online"
 
 
 #邀请码有效期(秒为单位)

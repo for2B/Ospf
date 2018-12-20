@@ -28,10 +28,10 @@ func (cm *CacheManager) InitStormDB(stormDBpath string) {
 
 }
 
+
 func (cm *CacheManager) Set(buckeyName string, key interface{}, value interface{}) error {
 	return cm.stormDB.Set(buckeyName, key, value)
 }
-
 func (cm *CacheManager) Get(buckeyName string, key interface{}, to interface{}) error {
 	return cm.stormDB.Get(buckeyName, key, to)
 }
